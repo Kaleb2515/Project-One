@@ -15,6 +15,13 @@
 -	Set num of allowed guesses
 }
 
+function randomAnswer(names) {
+    for(let) {
+        const random = names[Math.floor(Math.random() * names.length)];
+        return random
+    }
+}
+
 Function guessLetter() {
 -	if letter is correct, place on tile
 -	else subtract number of guesses left
