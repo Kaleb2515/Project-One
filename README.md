@@ -9,10 +9,11 @@
 
 ### PseudoCode
 ```js
-    Function gameInit() {
--	Choose new artist
--	Choose num of blank tiles
--	Set num of allowed guesses
+- Initialize game
+function gameInit() {
+-	Game chooses new artist pick
+-	Game chooses num of blank tiles
+-	Game sets num of allowed guesses
 }
 
 function randomAnswer(names) {
@@ -22,19 +23,21 @@ function randomAnswer(names) {
     }
 }
 
-Function guessLetter() {
+- Guess letter
+function guessLetter() {
+    code here
 -	if letter is correct, place on tile
 -	else subtract number of guesses left
 	
 }
 
-Function results() {
+function results() {
 -	if all letters guessed prompt winning message
 -	else prompt losing message
 }
 
 
-Function makeChoice(choice) {
+function makeChoice(choice) {
 -   Grab choice data
 -   Store the data in a variable 
 }
