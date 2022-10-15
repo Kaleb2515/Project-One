@@ -1,11 +1,12 @@
 img {
     display: flex;
     opacity: 0.3;
-    width: 100%;
+    width: 90%;
     height: auto;
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    border: 5px solid black;
 }
 
 .headers {
@@ -23,4 +24,22 @@ img {
     top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.reset {
+    padding: 20px;
+}
+
+.body {
+    border: 10px solid black;
+    width: 430px;
+    background #fff;
+    border-radius: 20px;
+}
+
+.correctGuess {
+    border:1px solid black;
+    border-radius: 50px;
+    padding: 5px;
+
 }
