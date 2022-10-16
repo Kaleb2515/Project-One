@@ -18,6 +18,7 @@ const guess = document.querySelector("#guess");
 const answer = possibleArtists[Math.floor(Math.random() * possibleArtists.length)]
 
 
+
 /*----- app's state (variables) -----*/
 let playerGuess,
 correctAnswer,
@@ -53,6 +54,13 @@ function genUnderscores () {
         return underScores
     }
     
+function updateUnderscores () {
+    answerUnderscores.innerHTML = answer
+    
+}
+ updateUnderscores()
+
+
 
     console.log(genUnderscores())
     console.log(answer)
