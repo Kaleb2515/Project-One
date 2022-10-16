@@ -1,5 +1,7 @@
 /*----- constants -----*/
-const possibleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+// const possibleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 const possibleArtists = [
   "Tori Amos",
   "Bork",
@@ -15,23 +17,35 @@ const possibleArtists = [
 
 const guess = document.querySelector("#guess");
 
-const randomLetters =
-  possibleLetters[Math.floor(Math.random() * possibleLetters.length)];
-const randomLetter = "";
-let displayText = guess
+// const randomLetters =
+//   possibleLetters[Math.floor(Math.random() * possibleLetters.length)];
+
 
 /*----- app's state (variables) -----*/
 let playerGuess,
 correctAnswer,
 maxWrong = 10,
-submittedGuess = null;
+submittedGuess = null,
+underScores = []
 
 let state = {
     playerGuess,
     correctAnswer,
     maxWrong,
     submittedGuess,
+    underScores,
 };
+
+
+
+let genUnderscores = function () {
+    for (let i = 0; i < possibleArtists.length; i++) {
+        underScores.push('_');
+    }
+    return underScores
+}
+
+console.log(underScores)
 
 /*----- cached element references -----*/
 /*----- event listeners -----*/
@@ -41,10 +55,28 @@ let state = {
 /*----- functions -----*/
 function gameInit() {}
 
+
 function randomArtist() {
   answer = possibleArtists[Math.floor(Math.random() * possibleArtists.length)];
-  console.log(answer);
+  console.log(answer)
 }
+
+randomArtist();
+
+
+function send() {
+    console.log(guess.value)
+}
+
+
+
+
+
+
+
+
+
+
 
 // document.getElementById('subBtn').innerHTML = "";
 // document.getElementById('maxWrong').innerHTML = maxWrong;
@@ -54,12 +86,6 @@ function randomArtist() {
 // let input = document.getElementById('guess');
 
 
-function send() {
-    console.log(guess.value)
-}
+// console.log(randomLetters);
 
-randomArtist();
-
-console.log(randomLetters);
-console.log(randomArtist);
 
