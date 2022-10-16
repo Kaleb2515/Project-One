@@ -1,10 +1,9 @@
 /*----- constants -----*/
 
-// const possibleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 const possibleArtists = [
   "Tori Amos",
-  "Bork",
+  "Bjork",
   "PJ Harvey",
   "Liz Phair",
   "Sinead Oconnor",
@@ -36,16 +35,17 @@ let state = {
     underScores,
 };
 
+const answer = possibleArtists[Math.floor(Math.random() * possibleArtists.length)]
 
-
-let genUnderscores = function () {
-    for (let i = 0; i < possibleArtists.length; i++) {
+const genUnderscores = function () {
+    for (let i = 0; i < answer.length; i++) {
         underScores.push('_');
     }
     return underScores
 }
 
-console.log(underScores)
+console.log(genUnderscores())
+console.log(answer)
 
 /*----- cached element references -----*/
 /*----- event listeners -----*/
@@ -56,12 +56,12 @@ console.log(underScores)
 function gameInit() {}
 
 
-function randomArtist() {
-  answer = possibleArtists[Math.floor(Math.random() * possibleArtists.length)];
-  console.log(answer)
-}
+// function randomArtist() {
+//   answer = possibleArtists[Math.floor(Math.random() * possibleArtists.length)];
+//   console.log(answer)
+// }
 
-randomArtist();
+// randomArtist();
 
 
 function send() {
