@@ -15,55 +15,46 @@ const possibleArtists = [
 
 const guess = document.querySelector("#guess");
 
-const answer = possibleArtists[Math.floor(Math.random() * possibleArtists.length)]
-
-
+const answer =
+  possibleArtists[Math.floor(Math.random() * possibleArtists.length)];
 
 /*----- app's state (variables) -----*/
 let playerGuess,
-correctAnswer,
-maxWrong = 10,
-submittedGuess = null,
-underScores = []
+  correctAnswer,
+  maxWrong = 10,
+  underScores = [];
 
 let state = {
-    playerGuess,
-    correctAnswer,
-    maxWrong,
-    submittedGuess,
-    underScores,
+  playerGuess,
+  correctAnswer,
+  maxWrong,
+  underScores,
 };
-
 
 /*----- cached element references -----*/
 /*----- event listeners -----*/
 
-
-
 /*----- functions -----*/
 function gameInit() {}
 
+// logs users guess to console log when hit submit button
 function send() {
-    console.log(guess.value)
+  console.log(guess.value);
 }
 
-function genUnderscores () {
-        for (let i = 0; i < answer.length; i++) {
-            underScores.push('_');
-        }
-        return underScores
-    }
-    
-function updateUnderscores () {
-    answerUnderscores.innerHTML = answer
-    
+// Underscores in console log
+function genRandNames() {
+  for (let i = 0; i < answer.length; i++) {
+    underScores.push("_");
+  }
+  return underScores;
 }
- updateUnderscores()
 
+// Places randomly generated names in answer field where underscores are supposed to be
+function updateRandNames() {
+  return (answerUnderscores.innerHTML = answer);
+}
+updateRandNames();
 
-
-    console.log(genUnderscores())
-    console.log(answer)
-
-
-
+console.log(genRandNames());
+console.log(answer);
