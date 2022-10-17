@@ -21,13 +21,13 @@ const answer =
 /*----- app's state (variables) -----*/
 let playerGuess,
   correctAnswer,
-  maxWrong = 10,
+  maxGuesses = 10,
   underScores = [];
 
 let state = {
   playerGuess,
   correctAnswer,
-  maxWrong,
+  maxGuesses,
   underScores,
 };
 
@@ -35,6 +35,16 @@ let state = {
 
 
 /*----- event listeners -----*/
+// Pressing down on a letter logs it to console.log
+document.addEventListener('keypress', function (event) {
+    let name = event.key;
+    let code = event.code;
+    console.log(`Key pressed ${name} Key code value: ${code}`);
+}, false);
+
+
+
+
 
 /*----- functions -----*/
 function gameInit() {}
