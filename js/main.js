@@ -33,10 +33,10 @@ const possibleArtists = [
   };
   
   /*----- cached element references -----*/
-  
+  const answerSpace = document.getElementById('answerUnderscores')
   
   /*----- event listeners -----*/
-  // Pressing down on a letter logs it to console.log
+
 
   
   
@@ -54,7 +54,7 @@ const possibleArtists = [
   
 
 
-  // Underscores in console log
+  // Underscores IN CONSOLE LOG
   function randomNames() {
     for (let i = 0; i < answer.length; i++) {
       underScores.push("_");
@@ -62,25 +62,29 @@ const possibleArtists = [
     return underScores;
   }
   
-  // Places randomly generated names as underscores in answer field 
+  // Replacing answer with underscores in answer field 
   function answerFieldRandNames() {
-    return answerUnderscores.innerHTML = answer.replace(/[a-z]/gi, '_')
+    return answerSpace.innerHTML = answer.replace(/[a-zA-Z]/gi, '_')
   
   }
 
-function placeLetter() {
-    if (guess.value = send)
-    
+
+//**********************
+ 
+function placeLetter(i) {
+console.log(i)
+    answerSpace.innerHTML = answer[i]
+
     console.log("you guessed correct!")
 }
+ 
 
-// ********** */
 function pGuess () {
     for (let i = 0; i < answer.length; i++) {
         
         if (answer[i] === guess.value) {
             console.log("correct")
-            placeLetter()
+            placeLetter(i)
         } else {
             console.log("incorrect")
         }
@@ -88,10 +92,7 @@ function pGuess () {
     } 
 }
 
-    
-//*********** */
-
-
+//***************************
   
   answerFieldRandNames();
   

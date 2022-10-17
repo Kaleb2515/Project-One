@@ -6,7 +6,7 @@
 ## Wireframe
 ![Word Guessing Game Wireframe](img/IMG_0797.jpeg)
 ![Word Guessing Game Wireframe](img/71ee4b8f9bdc80cf16c889a60f08d902.jpg)
-
+![Screen Capture of Game](img/Screen%20Shot%202022-10-17%20at%203.58.30%20PM.png)
 ### PseudoCode
 ```js
 - Initialize game
@@ -44,3 +44,6 @@ function makeChoice(choice) {
 
     
 ```
+
+## Game Link
+http://127.0.0.1:5500/index.html
