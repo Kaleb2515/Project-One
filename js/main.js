@@ -11,6 +11,7 @@ const possibleArtists = [
   "Sarah McLachlan",
   "Dolores ORiordan",
   "Courtney Love",
+  "Shirley Manson",
 ];
 
 const guess = document.querySelector("#guess");
@@ -62,13 +63,14 @@ function randomNames() {
   return underScores;
 }
 
-// Places randomly generated names in answer field where underscores are supposed to be
-function updateRandNames() {
-  return answerUnderscores.innerHTML = answer
+// Places randomly generated names as underscores in answer field 
+function answerFieldRandNames() {
+  return answerUnderscores.innerHTML = answer.replace(/[a-z]/gi, '_')
 
 }
 
-updateRandNames();
+answerFieldRandNames();
 
 console.log(randomNames());
 console.log(answer);
+
