@@ -68,7 +68,11 @@ const possibleArtists = [
   
   }
 
-//  function placeLetter
+function placeLetter() {
+    if (guess.value = send)
+    
+    console.log("you guessed correct!")
+}
 
 // ********** */
 function pGuess () {
@@ -76,7 +80,7 @@ function pGuess () {
         
         if (answer[i] === guess.value) {
             console.log("correct")
-            // placeLetter()
+            placeLetter()
         } else {
             console.log("incorrect")
         }
