@@ -45,7 +45,7 @@ function send() {
 }
 
 // Underscores in console log
-function genRandNames() {
+function randomNames() {
   for (let i = 0; i < answer.length; i++) {
     underScores.push("_");
   }
@@ -54,9 +54,11 @@ function genRandNames() {
 
 // Places randomly generated names in answer field where underscores are supposed to be
 function updateRandNames() {
-  return (answerUnderscores.innerHTML = answer);
+  return answerUnderscores.innerHTML = answer
+
 }
+
 updateRandNames();
 
-console.log(genRandNames());
+console.log(randomNames());
 console.log(answer);
