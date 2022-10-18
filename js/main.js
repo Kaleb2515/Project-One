@@ -72,9 +72,9 @@ const possibleArtists = [
 //**********************
  
 function placeLetter(i) {
-console.log(i)
-    answerSpace.innerHTML = answer[i]
-
+  console.log(i)
+    answerSpace.innerHTML[i] = answer[i]
+    
     console.log("you guessed correct!")
 }
  
