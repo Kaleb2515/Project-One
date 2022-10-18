@@ -38,11 +38,7 @@ const subBtn = document.getElementById("subBtn");
 
 /*----- event listeners -----*/
 // logs users guess to console log when hit submit button
-subBtn.addEventListener("click", function send() {
-  console.log("I WAS CLICKED");
-  console.log(guess.value);
-  checkAnswer();
-});
+subBtn.addEventListener("click", send)
 
 /*----- functions -----*/
 function render() {}
@@ -65,29 +61,43 @@ function answerFieldRandNames() {
   return (answerSpace.innerHTML = answer.replace(/[a-zA-Z]/gi, "_"));
 }
 
-function placeLetter(i) {
-  console.log(i);
-  // answerSpace.textContent.replace(answerSpace.innerHTML[i], answer[i])
-  let letterIndex = answer.indexOf(i);
-
-  answerSpace.textContent[letterIndex] = answer[letterIndex];
-
-  // console.log(answer[i])
-  // console.log(answerSpace.innerHTML[i])
-  // console.log("you guessed correct!");
+// function associated with submit button event listener
+function send() {
+  console.log("I WAS CLICKED");
+  console.log(guess.value);
+  checkAnswer();
 }
+
 
 function checkAnswer() {
+  let answerString = ""
   for (let i = 0; i < answer.length; i++) {
+    
     if (answer[i] === guess.value) {
       console.log("correct");
-      placeLetter(i);
-
+      answerString += guess.value 
     } else {
-      console.log("incorrect");
+      answerString += "_"
     }
-  }
+  }answerSpace.textContent = answerString
 }
+
+// function placeLetter(i) {
+  
+  // answerSpace.textContent.replace(answerSpace.innerHTML[i], answer[i])
+
+//   let letterIndex = answer.indexOf(i);
+// console.log("letterIndex", letterIndex)
+  
+
+//   // console.log(answer[letterIndex])
+//   // console.log(answerSpace.textContent[letterIndex])
+//   // console.log("you guessed correct!");
+//   // answerSpace.textContent[letterIndex] = answer[letterIndex];
+  
+// }
+
+
 
 checkAnswer();
 answerFieldRandNames();
