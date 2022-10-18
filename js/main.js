@@ -33,30 +33,22 @@ let state = {
 };
 
 /*----- cached element references -----*/
-const answerSpace = document.getElementById("answerUnderscores")
-// const submitButton = document.getElementById("subBtn");
-
-
-
+const answerSpace = document.getElementById("answerUnderscores");
+const subBtn = document.getElementById("subBtn");
 
 /*----- event listeners -----*/
-// subBtn.addEventListener('click', "I WAS CLICKED");
-
-// console.log(subBtn)
+// logs users guess to console log when hit submit button
+subBtn.addEventListener("click", function send() {
+  console.log("I WAS CLICKED");
+  console.log(guess.value);
+  checkAnswer();
+});
 
 /*----- functions -----*/
-function render(){
-
-}
+function render() {}
 
 function gameInit() {
-  render()
-}
-
-// logs users guess to console log when hit submit button
-function send() {
-  console.log(guess.value);
-  pGuess();
+  render();
 }
 
 // Underscores IN CONSOLE LOG
@@ -73,45 +65,32 @@ function answerFieldRandNames() {
   return (answerSpace.innerHTML = answer.replace(/[a-zA-Z]/gi, "_"));
 }
 
-
 function placeLetter(i) {
   console.log(i);
-  // answerSpace.innerHTML.replace(answerSpace.innerHTML[i], answer[i])
-  let letterIndex = answer.indexOf(i)
-  
+  // answerSpace.textContent.replace(answerSpace.innerHTML[i], answer[i])
+  let letterIndex = answer.indexOf(i);
+
   answerSpace.textContent[letterIndex] = answer[letterIndex];
 
-  
-  console.log(answer[i])
-  console.log(answerSpace.innerHTML[i])
-  console.log("you guessed correct!");
+  // console.log(answer[i])
+  // console.log(answerSpace.innerHTML[i])
+  // console.log("you guessed correct!");
 }
 
-// function checkAnswer () {
-// document.addEventListener('click', guess)
-// console.log(guess.value);
-//   pGuess();
-// }
-
-
-
-// btn.addEventListener('click', event => {
-//   test();
-
-
-function pGuess() {
+function checkAnswer() {
   for (let i = 0; i < answer.length; i++) {
     if (answer[i] === guess.value) {
       console.log("correct");
       placeLetter(i);
+
     } else {
       console.log("incorrect");
     }
   }
 }
 
-pGuess()
+checkAnswer();
 answerFieldRandNames();
 
 console.log(randomNames());
-console.log(answer)
+console.log(answer);
