@@ -38,7 +38,7 @@ const guess = document.querySelector("#guess");
 
 /*----- event listeners -----*/
 // logs users guess to console log when hit submit button
-subBtn.addEventListener("click", send)
+subBtn.addEventListener("click", send);
 
 /*----- functions -----*/
 function render() {}
@@ -68,29 +68,24 @@ function send() {
 }
 
 function checkAnswer() {
-  let answerString = ""
-  for (let i = 0; i < answer.length; i++) {   
+  let answerString = "";
+  for (let i = 0; i < answer.length; i++) {
     if (answer[i] === guess.value) {
       console.log("correct");
-      answerString += guess.value 
+      answerString += guess.value;
     } else {
-      answerString += "_"
+      answerString += "_";
     }
-  }answerSpace.textContent = answerString
+  }
+  answerSpace.textContent = answerString;
 }
 
 function placeLetter(i) {
-  
-  answerSpace.textContent.replace(answerSpace.innerHTML[i], answer[i])
-
+  answerSpace.textContent.replace(answerSpace.innerHTML[i], answer[i]);
 }
-
-
-
 
 checkAnswer();
 answerFieldRandNames();
 console.log("you guessed correct!");
 console.log(randomNames());
 console.log(answer);
-
