@@ -1,7 +1,6 @@
 /*----- constants -----*/
 const MAX_WRONG_GUESSES = 10;
-
-const possibleArtists = [
+const WORDS = [
   "Tori Amos",
   "Bjork",
   "PJ Harvey",
@@ -15,77 +14,107 @@ const possibleArtists = [
   "Shirley Manson",
 ];
 
-const answer =
-  possibleArtists[Math.floor(Math.random() * possibleArtists.length)];
-
 /*----- app's state (variables) -----*/
-let playerGuess,
-  correctAnswer,
-  maxGuesses = 10,
-  underScores = [];
-
-let state = {
-  playerGuess,
-  correctAnswer,
-  maxGuesses,
-  underScores,
-};
+let wrongGuesses; // Array to hold incorrect letters
+let secret; // Array of the chars for the randomly selected word
+let guess; // Array of current guessed letters
+let gameStatus; // null -> game in progress; 'W' -> won; 'L' -> lost
 
 /*----- cached element references -----*/
-const answerSpace = document.getElementById("answerUnderscores");
-const subBtn = document.getElementById("subBtn");
-const guess = document.querySelector("#guess");
+const replayBtn = document.getElementById("play-again-btn");
+const submitBtn = document.getElementById("submitBtn");
+const guessEl = document.getElementById("guess");
+const msgEl = document.querySelector("h2");
+const myInput = document.querySelector("#myInput");
 
 /*----- event listeners -----*/
-// logs users guess to console log when hit submit button
-subBtn.addEventListener("click", send);
+document
+  .querySelector("#submitBtn")
+  .addEventListener("click", handleButtonClick);
+replayBtn.addEventListener("click", init);
 
 /*----- functions -----*/
-function render() {}
+init();
 
-function gameInit() {
+function init() {
+  wrongGuesses = [];
+  const rndIdx = Math.floor(Math.random() * WORDS.length);
+  secret = WORDS[rndIdx].toUpperCase().split("");
+  // map always returns a NEW array of the same # of elements
+  guess = secret.map((ltr) => (ltr === " " ? " " : "_"));
+  gameStatus = null;
   render();
 }
 
-// Underscores IN CONSOLE LOG
-function randomNames() {
-  for (let i = 0; i < answer.length; i++) {
-    underScores.push("_");
+function render() {
+  // render the message
+  renderMessage();
+  // render the guess
+  guessEl.textContent = guess.join("");
+  // render the buttons
+  renderButtons();
+}
+
+function renderMessage() {
+  if (gameStatus === "W") {
+    msgEl.textContent = "You Guessed the correct singer!";
+  } else if (gameStatus === "L") {
+    msgEl.innerHTML = `Out of guesses! The artist was ${secret.join("")}`;
+  } else {
+    msgEl.textContent = `${
+      MAX_WRONG_GUESSES - wrongGuesses.length + 1
+    } Wrong Guesses Remain - Good Luck!`;
   }
-  return underScores;
 }
 
-// Replacing answer with underscores in answer field
-function answerFieldRandNames() {
-  return (answerSpace.innerHTML = answer.replace(/[a-zA-Z]/gi, "_"));
-}
-
-// function associated with submit button event listener
-function send() {
-  console.log("I WAS CLICKED");
-  console.log(guess.value);
-  checkAnswer();
-}
-
-function checkAnswer() {
-  let answerString = "";
-  for (let i = 0; i < answer.length; i++) {
-    if (answer[i] === guess.value) {
-      console.log("correct");
-      answerString += guess.value;
+function renderButtons() {
+  letterBtns.forEach(function (btn) {
+    const ltr = btn.textContent;
+    if (wrongGuesses.includes(ltr)) {
+      btn.className = "wrong";
+    } else if (guess.includes(ltr)) {
+      btn.className = "correct";
     } else {
-      answerString += "_";
+      btn.className = "";
     }
+  });
+  replayBtn.style.visibility = gameStatus ? "visible" : "hidden";
+}
+
+function handleButtonClick(evt) {
+  const ltr = myInput.value.toUpperCase();
+  console.log(ltr);
+
+  if (secret.includes(ltr)) {
+    // correct guess
+    secret.forEach(function (char, idx) {
+      if (char === ltr) guess[idx] = ltr;
+    });
+  } else {
+    // wrong guess
+    wrongGuesses.push(ltr);
   }
-  answerSpace.textContent = answerString;
+
+  gameStatus = getGameStatus();
+  myInput.value = "";
+  render();
 }
 
-function placeLetter(i) {
-  answerSpace.textContent.replace(answerSpace.innerHTML[i], answer[i]);
+function getGameStatus() {
+  if (!guess.includes("_")) return "W";
+  if (wrongGuesses.length > MAX_WRONG_GUESSES) return "L";
+  return null;
 }
 
-checkAnswer();
-answerFieldRandNames();
-console.log("you guessed correct!");
-console.log(randomNames());
-console.log(answer);
+
+
+
+
+
+
+
+
+
+
+
+

@@ -9,7 +9,7 @@ img {
     border: 5px solid black;
 }
 
-.headers {
+.main {
     font-family: 'Peralta', cursive;
     text-align: center;
     position: absolute;
@@ -17,6 +17,11 @@ img {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.play-again-btn {
+    margin-top: 1000px;
+}
+
 
 .guess {
     text-align: center;
@@ -30,20 +35,12 @@ img {
     padding: 10px;
 }
 
-.body {
+/* .body {
     border: 10px solid black;
     width: 430px;
     background #fff;
     border-radius: 20px;
-}
+} */
 
-.correctGuess {
-    border:1px solid black;
-    border-radius: 50px;
-    padding: 5px;
 
-}
 
-p {
-    font-size: 20px;
-}

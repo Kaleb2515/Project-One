@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Peralta&display=swap" rel="stylesheet">
-    <script defer src="js/main.js"></script>
-
-    <title>Name Guessing Game</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess The Singer</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Peralta&display=swap" rel="stylesheet">
+  <script defer src="js/main.js"></script>
 </head>
+
 <body>
-    <img src="img/71ee4b8f9bdc80cf16c889a60f08d902.jpg" alt="PJ Harvey Bjork Tori Amos">
-    <div class="container">
-        <div class="headers">
-            <h1>Guess the 90's Artist Name</h1>
-            <h3>Alternative female singer songwriters</h3> 
-            <div class="correctGuess" id="answerField">
-                <p id="answerUnderscores">_ _ _ _ _ _</p>
-            </div>
-    </div>
+    <img src="img/71ee4b8f9bdc80cf16c889a60f08d902.jpg"
+  <header></header>
    
-
-        <div class="guess"> 
-            <h4>Remaining guesses:<span id="remGuesses">10</span></h4>
-            <h4>Guess a letter</h4>
-           
-                <input type="text" placeholder="Your guess" id="guess"> 
-           
-                <button type="submit" id="subBtn">Submit Guess</button>
-            <div class="reset" id="reset"></div>
-            <button type="button" id="resetBtn">Reset Game</button>
-            </div>
-            
+  <main class = "main">
+    <h1>90's Alternative female singer songwriters</h1>
+    <section>
+      <h2></h2>
+      <div>
+        <div>
+          <article>
+            <input type="text" id="myInput" name="myInput">
+            <button id="submitBtn" type="submit">Submit</button>
+          </article>
+          <button id="play-again-btn">Reset Game</button>
         </div>
-
-    </div>
+      </div>
+      <h1 id="guess"></h1>
+    </section>
+  </main>
 </body>
+
 </html>
