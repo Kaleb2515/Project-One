@@ -1,4 +1,5 @@
 /*----- constants -----*/
+const MAX_WRONG_GUESSES = 10;
 
 const possibleArtists = [
   "Tori Amos",
@@ -13,8 +14,6 @@ const possibleArtists = [
   "Courtney Love",
   "Shirley Manson",
 ];
-
-const guess = document.querySelector("#guess");
 
 const answer =
   possibleArtists[Math.floor(Math.random() * possibleArtists.length)];
@@ -35,6 +34,7 @@ let state = {
 /*----- cached element references -----*/
 const answerSpace = document.getElementById("answerUnderscores");
 const subBtn = document.getElementById("subBtn");
+const guess = document.querySelector("#guess");
 
 /*----- event listeners -----*/
 // logs users guess to console log when hit submit button
@@ -55,7 +55,6 @@ function randomNames() {
   return underScores;
 }
 
-//*********************
 // Replacing answer with underscores in answer field
 function answerFieldRandNames() {
   return (answerSpace.innerHTML = answer.replace(/[a-zA-Z]/gi, "_"));
@@ -68,11 +67,9 @@ function send() {
   checkAnswer();
 }
 
-
 function checkAnswer() {
   let answerString = ""
-  for (let i = 0; i < answer.length; i++) {
-    
+  for (let i = 0; i < answer.length; i++) {   
     if (answer[i] === guess.value) {
       console.log("correct");
       answerString += guess.value 
@@ -82,25 +79,18 @@ function checkAnswer() {
   }answerSpace.textContent = answerString
 }
 
-// function placeLetter(i) {
+function placeLetter(i) {
   
-  // answerSpace.textContent.replace(answerSpace.innerHTML[i], answer[i])
+  answerSpace.textContent.replace(answerSpace.innerHTML[i], answer[i])
 
-//   let letterIndex = answer.indexOf(i);
-// console.log("letterIndex", letterIndex)
-  
+}
 
-//   // console.log(answer[letterIndex])
-//   // console.log(answerSpace.textContent[letterIndex])
-//   // console.log("you guessed correct!");
-//   // answerSpace.textContent[letterIndex] = answer[letterIndex];
-  
-// }
 
 
 
 checkAnswer();
 answerFieldRandNames();
-
+console.log("you guessed correct!");
 console.log(randomNames());
 console.log(answer);
+
