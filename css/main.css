@@ -9,6 +9,7 @@ img {
     border: 5px solid black;
 }
 
+
 .main {
     font-family: 'Peralta', cursive;
     text-align: center;
@@ -42,8 +43,12 @@ padding:20px;
 .underscores {
     text-align: center;
     position: absolute;
-    top: 110%;
+    top: 130%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: solid thin black;
+    padding-left: 150px;
+    padding-right: 150px;
+    border-radius: 50px;
+    
 }
-

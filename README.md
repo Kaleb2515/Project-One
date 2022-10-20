@@ -44,3 +44,13 @@ function makeChoice(choice) {
 
     
 ```
+### Technologies used
+- HTML, CSS, Javascript
+
+### Getting Started
+
+### Next Steps
+- I would like to incorporate some kind of animation when the game is won.
+
+### Referenced 
+- Spaceman code along
