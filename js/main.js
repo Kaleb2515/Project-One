@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const MAX_WRONG_GUESSES = 10;
-const WORDS = [
+const randArtists = [
   "Tori Amos",
   "Bjork",
   "PJ Harvey",
@@ -38,8 +38,8 @@ init();
 
 function init() {
   wrongGuesses = [];
-  const rndIdx = Math.floor(Math.random() * WORDS.length);
-  secret = WORDS[rndIdx].toUpperCase().split("");
+  const rndIdx = Math.floor(Math.random() * randArtists.length);
+  secret = randArtists[rndIdx].toUpperCase().split("");
   // map always returns a NEW array of the same # of elements
   guess = secret.map((ltr) => (ltr === " " ? " " : "_"));
   gameStatus = null;
@@ -51,34 +51,18 @@ function render() {
   renderMessage();
   // render the guess
   guessEl.textContent = guess.join("");
-  // render the buttons
-  renderButtons();
 }
 
 function renderMessage() {
   if (gameStatus === "W") {
     msgEl.textContent = "You Guessed the correct singer!";
   } else if (gameStatus === "L") {
-    msgEl.innerHTML = `Out of guesses! The artist was ${secret.join("")}`;
+    msgEl.textContent = `Out of guesses! The artist was ${secret.join("")}`;
   } else {
     msgEl.textContent = `${
-      MAX_WRONG_GUESSES - wrongGuesses.length + 1
+      MAX_WRONG_GUESSES - wrongGuesses.length
     } Wrong Guesses Remain - Good Luck!`;
   }
-}
-
-function renderButtons() {
-  letterBtns.forEach(function (btn) {
-    const ltr = btn.textContent;
-    if (wrongGuesses.includes(ltr)) {
-      btn.className = "wrong";
-    } else if (guess.includes(ltr)) {
-      btn.className = "correct";
-    } else {
-      btn.className = "";
-    }
-  });
-  replayBtn.style.visibility = gameStatus ? "visible" : "hidden";
 }
 
 function handleButtonClick(evt) {
@@ -105,16 +89,3 @@ function getGameStatus() {
   if (wrongGuesses.length > MAX_WRONG_GUESSES) return "L";
   return null;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
