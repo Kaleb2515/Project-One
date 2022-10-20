@@ -13,7 +13,7 @@ img {
     font-family: 'Peralta', cursive;
     text-align: center;
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -24,19 +24,11 @@ padding: 30px;
 }
 
 .submit {
-    padding: 5px;
+padding: 5px;
 }
 
 .reset {
 padding:20px;
-}
-
-.submitBtn {
-
-}
-
-.play-again-btn {
-    
 }
 
 .guess {
@@ -47,5 +39,11 @@ padding:20px;
     transform: translate(-50%, -50%);
 }
 
-
+.underscores {
+    text-align: center;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 

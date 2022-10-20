@@ -41,6 +41,7 @@ function init() {
   const rndIdx = Math.floor(Math.random() * randArtists.length);
   secret = randArtists[rndIdx].toUpperCase().split("");
   // map always returns a NEW array of the same # of elements
+  // ask Jason below
   guess = secret.map((ltr) => (ltr === " " ? " " : "_"));
   gameStatus = null;
   render();
@@ -89,3 +90,5 @@ function getGameStatus() {
   if (wrongGuesses.length > MAX_WRONG_GUESSES) return "L";
   return null;
 }
+
+console.log(guess)
