@@ -48,7 +48,7 @@ function makeChoice(choice) {
 - HTML, CSS, Javascript
 
 ### Getting Started
-
+- https://kaleb2515.github.io/Project-One/
 ### Next Steps
 - I would like to incorporate some kind of animation when the game is won.
 
